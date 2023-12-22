@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.validator.constraints.URL;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -45,6 +44,10 @@ public class Product {
 
     @UpdateTimestamp
     private LocalDateTime lastUpdated;
+    
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private ProductCategory category;
 
     @Override
     public String toString() {

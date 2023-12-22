@@ -1,6 +1,7 @@
-package com.resftul.springdatajpaecommerce.repository;
+package repository;
 
 import com.resftul.springdatajpaecommerce.entity.Product;
+import com.resftul.springdatajpaecommerce.repository.ProductRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @SpringBootTest
-public class NativeSQLQueriesTest {
+public class JPQLQueriesTest {
 
     @Autowired
     private ProductRepository productRepository;
@@ -144,22 +145,16 @@ public class NativeSQLQueriesTest {
     void tearDown() {
         productRepository.deleteAll();
     }
-
+    
     @Test
-    void findByNameOrDescriptionNativeIndexParam() {
-        List<Product> products = productRepository.findByNameOrDescriptionNativeIndexParam(
-                "Smartphone iPhone 13",
-                "Achieve cleaner and healthier teeth with advanced sonic technology"
-        );
+    void findByNameOrDescriptionJPQLIndexParamMethod(){
+        List<Product> products = productRepository.findByNameOrDescriptionJPQLIndexParam("Smartphone iPhone 13", "Professional-grade mirrorless camera for photographers");
         System.out.println(products);
     }
-
+    
     @Test
-    void findByNameOrDescriptionNativeNamedParam() {
-        List<Product> products = productRepository.findByNameOrDescriptionNativeNamedParam(
-                "Smartphone iPhone 13",
-                "Achieve cleaner and healthier teeth with advanced sonic technology"
-        );
+    void findByNameOrDescriptionJPQLNamedParamMethod(){
+        List<Product> products = productRepository.findByNameOrDescriptionJPQLNamedParam("Smartphone iPhone 13", "Professional-grade mirrorless camera for photographers");
         System.out.println(products);
     }
 }

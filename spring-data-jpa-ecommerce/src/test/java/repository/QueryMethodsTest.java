@@ -1,6 +1,7 @@
-package com.resftul.springdatajpaecommerce.repository;
+package repository;
 
 import com.resftul.springdatajpaecommerce.entity.Product;
+import com.resftul.springdatajpaecommerce.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
