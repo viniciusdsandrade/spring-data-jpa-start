@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity(name = "User")
 @Table(name = "tb_user",
-        schema = "tb_user")
+        schema = "db_ecommerce")
 public class User {
 
     @Id
